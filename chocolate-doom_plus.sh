@@ -36,6 +36,8 @@ https://github.com/Exarkuniv/RetroPie-Extra
 # How to use:
 INSTALL [chocolate-doom] from RetroPie SETUP 1st...
 INSTALL [chocolate-doom-plus] additional Emulator Entries
+When Installed you can specify the Full Path to the doom.wad %ROM% in your Chocolate D00M R0M-Scripts.sh  
+Additionally includes R0M-Scripts for Chocolate D00M Setup Selection + Dedicated Server  
 
 # Chocolate-D00M-Plus R0M-Scripts.sh:
 [+Chocolate Doom Setup+.sh]: Can be placed in ..roms/ports/*
