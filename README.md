@@ -4,8 +4,9 @@
 
 **HOW DOES IT WORK?**  
 [chocolate-doom-plus] Simplifies Chocolate D00M with additional Emulator Entries and R0M-Scripts.sh  
-When Installed you can specify the Full Path to the doom.wad %ROM% in your Chocolate D00M R0M-Scripts.sh  
-Additionally includes R0M-Scripts for Chocolate D00M Setup Selection + Dedicated Server  
+When Installed you can specify the Full Path to the doom.wad %ROM%  
+You can also include additional -file and -deh in your R0M-Scripts.sh  
+Also includes R0M-Script for Chocolate D00M Setup Selection + Server  
 
 ## INSTALLATION  
 ***You MUST INSTALL Chocolate Doom from RetroPie Setup 1st! [chocolate-doom]***  
