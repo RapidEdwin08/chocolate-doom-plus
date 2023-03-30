@@ -142,8 +142,10 @@ if [ "$confCHOCdoomplus" == '2' ]; then
 		rm -d /opt/retropie/configs/ports/chocolate-doom-plus > /dev/null 2>&1
 		
 		# Remove chocolate-doom+ Scripts from ..roms/ports
-		rm "$HOME/RetroPie/roms/ports/+Chocolate Doom Server+.sh" > /dev/null 2>&1
-		rm "$HOME/RetroPie/roms/ports/+Chocolate Doom Setup+.sh" > /dev/null 2>&1
+		rm "$HOME/RetroPie/roms/ports/Chocolate D00M (Plus).sh" > /dev/null 2>&1
+		rm "$HOME/RetroPie/roms/ports/Chocolate Freedoom1 (Plus).sh" > /dev/null 2>&1
+		rm "$HOME/RetroPie/roms/ports/Chocolate Freedoom2 (Plus).sh" > /dev/null 2>&1
+		rm "$HOME/RetroPie/roms/ports/+Chocolate Doom Setup.sh" > /dev/null 2>&1
 		
 		dialog --no-collapse --title " REMOVE [chocolate-doom+] for RetroPie FINISHED" --ok-label Back --msgbox " chocolate-doom-plus REMOVED . . . "  25 75
 		mainMENU
