@@ -30,6 +30,7 @@ pickUTIL=$(dialog --no-collapse --title "  [Chocolate D00M SETUP]" \
 	2 " Chocolate-Setup [Heretic] " \
 	3 " Chocolate-Setup [Hexen] " \
 	4 " Chocolate-Setup [Strife] " \
+	S " Chocolate-Server [*] " \
 	X " EXIT " 2>&1>/dev/tty)
 	
 # Utilities
@@ -71,6 +72,14 @@ if [ ! "$pickUTIL" == '' ]; then
 		tput reset
 		#"/opt/retropie/ports/chocolate-doom/chocolate-strife-setup" > /dev/null 2>&1
 		"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "chocolate-strife-setup"
+		exit 0
+	fi
+	
+	if [ "$pickUTIL" == 'S' ]; then
+		sudo $joy2key stop 2>/dev/null
+		tput reset
+		#"/opt/retropie/ports/chocolate-doom/chocolate-setup" > /dev/null 2>&1
+		"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "server"
 		exit 0
 	fi
 	
