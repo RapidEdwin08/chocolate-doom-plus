@@ -50,9 +50,7 @@ wget https://raw.githubusercontent.com/RapidEdwin08/chocolate-doom-plus/main/Cho
 ***Chocolate-D00M-Plus R0M-Scripts.sh:***  
 [+Chocolate Doom Setup+.sh]: Can be placed in ..roms/ports/*  
 Script to Select chocolate-setup for doom, heretic, hexen, strife  
-
-[+Chocolate Doom Server+.sh]: Can be placed in ..roms/ports/*  
-Script to Start chocolate-doom as a Dedicated Server  
+Also includes Dedicated Server Mode  
 
 ***SOURCES:***  
 [Exarkuniv/RetroPie-Extra](https://github.com/Exarkuniv/RetroPie-Extra)  
