@@ -28,11 +28,11 @@ default = "chocolate-doom+"
 )
 
 chocDOOMsh=$(
-echo '
-#!/bin/bash
+echo '#!/bin/bash
 # https://github.com/RapidEdwin08/chocolate-doom-plus v2023.03
 
 "/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "$HOME/RetroPie/roms/ports/doom/doom1.wad"
+
 '
 )
 
@@ -107,14 +107,14 @@ if [ "$confCHOCdoomplus" == '1' ]; then
 			wget https://raw.githubusercontent.com/RapidEdwin08/chocolate-doom-plus/main/'Chocolate Doom Setup.sh' -P /dev/shm
 			mv "/dev/shm/Chocolate Doom Setup.sh" "$HOME/RetroPie/roms/ports/+Chocolate Doom Setup.sh" > /dev/null 2>&1
 			#wget https://raw.githubusercontent.com/RapidEdwin08/chocolate-doom-plus/main/'Chocolate D00M (Plus).sh' -P /dev/shm
-			echo $"chocDOOMsh" > "/dev/shm/Chocolate D00M (Plus).sh"
+			echo "$chocDOOMsh" > "/dev/shm/Chocolate D00M (Plus).sh"
 			mv "/dev/shm/Chocolate D00M (Plus).sh" "$HOME/RetroPie/roms/ports/Chocolate D00M (Plus).sh" > /dev/null 2>&1
 			
-			echo $"chocDOOMsh" > /dev/shm/CDPlus.sh
+			echo "$chocDOOMsh" > /dev/shm/CDPlus.sh
 			sed -i "s+doom1.wad+freedoom1.wad+g" /dev/shm/CDPlus.sh
 			mv /dev/shm/CDPlus.sh "$HOME/RetroPie/roms/ports/Chocolate Freedoom1 (Plus).sh"
 			
-			echo $"chocDOOMsh" > /dev/shm/CDPlus.sh
+			echo "$chocDOOMsh" > /dev/shm/CDPlus.sh
 			sed -i "s+doom1.wad+freedoom2.wad+g" /dev/shm/CDPlus.sh
 			mv /dev/shm/CDPlus.sh "$HOME/RetroPie/roms/ports/Chocolate Freedoom2 (Plus).sh"
 		fi
