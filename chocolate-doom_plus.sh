@@ -16,14 +16,23 @@ echo "            .-::::-.
 )
 
 chocDOOMcfg=$(
-echo 'chocolate-setup = "/opt/retropie/ports/chocolate-doom/chocolate-setup"
-chocolate-doom-setup = "/opt/retropie/ports/chocolate-doom/chocolate-doom-setup"
-chocolate-heretic-setup = "/opt/retropie/ports/chocolate-doom/chocolate-heretic-setup"
-chocolate-hexen-setup = "/opt/retropie/ports/chocolate-doom/chocolate-hexen-setup"
-chocolate-strife-setup = "/opt/retropie/ports/chocolate-doom/chocolate-strife-setup"
+echo 'chocolate-setup = "/opt/retropie/ports/chocolate-doom/chocolate-setup -iwad %ROM%"
+chocolate-doom-setup = "/opt/retropie/ports/chocolate-doom/chocolate-doom-setup -iwad %ROM%"
+chocolate-heretic-setup = "/opt/retropie/ports/chocolate-doom/chocolate-heretic-setup -iwad %ROM%"
+chocolate-hexen-setup = "/opt/retropie/ports/chocolate-doom/chocolate-hexen-setup -iwad %ROM%"
+chocolate-strife-setup = "/opt/retropie/ports/chocolate-doom/chocolate-strife-setup -iwad %ROM%"
 chocolate-server+ = "/opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh server"
 chocolate-doom+ = "/opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh %ROM%"
 default = "chocolate-doom+"
+'
+)
+
+chocDOOMsh=$(
+echo '
+#!/bin/bash
+# https://github.com/RapidEdwin08/chocolate-doom-plus v2023.03
+
+"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "$HOME/RetroPie/roms/ports/doom/doom1.wad"
 '
 )
 
@@ -36,20 +45,13 @@ https://github.com/Exarkuniv/RetroPie-Extra
 # How to use:
 INSTALL [chocolate-doom] from RetroPie SETUP 1st...
 INSTALL [chocolate-doom-plus] additional Emulator Entries
-When Installed you can specify the Full Path to the doom.wad %ROM% in your Chocolate D00M R0M-Scripts.sh  
-Additionally includes R0M-Scripts for Chocolate D00M Setup Selection + Dedicated Server  
+When Installed you can specify the Full Path to the doom.wad %ROM%  
+You can also include additional -file and -deh in your Chocolate D00M R0M-Scripts.sh  
+Also includes R0M-Script for Chocolate D00M Setup Selection + Dedicated Server  
 
 # Chocolate-D00M-Plus R0M-Scripts.sh:
 [+Chocolate Doom Setup+.sh]: Can be placed in ..roms/ports/*
 Script to Select chocolate-setup for doom, heretic, hexen, strife
-
-[+Chocolate Doom Server+.sh]: Can be placed in ..roms/ports/*
-Script to Start chocolate-doom as a Dedicated Server
-
-# Supported WADs by name UPPERCASE + lowercase
-doom1.wad doom2fr.wad doom2_v1666.wad doom2.wad doomu.wad doom.wad
-freedoom1.wad freedoom2.wad heretic.wad heretic1.wad heretic12.wad
-hexen0.wad hexen.wad plutonia.wad strife0.wad strife1.wad tnt.wad
 
 ======================================================================
 CURRENT CONTENT [/opt/retropie/configs/ports/chocolate-doom-plus/emulators.cfg]:                   
@@ -102,16 +104,17 @@ if [ "$confCHOCdoomplus" == '1' ]; then
 			sudo chmod 755 /opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh 2>/dev/null
 			
 			# Add chocolate-doom+ Scripts to ..roms/ports
-			wget https://raw.githubusercontent.com/RapidEdwin08/chocolate-doom-plus/main/'Chocolate D00M (Plus).sh' -P /dev/shm
 			wget https://raw.githubusercontent.com/RapidEdwin08/chocolate-doom-plus/main/'Chocolate Doom Setup.sh' -P /dev/shm
-			mv "/dev/shm/Chocolate D00M (Plus).sh" "$HOME/RetroPie/roms/ports/Chocolate D00M (Plus).sh" > /dev/null 2>&1
 			mv "/dev/shm/Chocolate Doom Setup.sh" "$HOME/RetroPie/roms/ports/+Chocolate Doom Setup.sh" > /dev/null 2>&1
+			#wget https://raw.githubusercontent.com/RapidEdwin08/chocolate-doom-plus/main/'Chocolate D00M (Plus).sh' -P /dev/shm
+			echo $"chocDOOMsh" > "/dev/shm/Chocolate D00M (Plus).sh"
+			mv "/dev/shm/Chocolate D00M (Plus).sh" "$HOME/RetroPie/roms/ports/Chocolate D00M (Plus).sh" > /dev/null 2>&1
 			
-			cp "$HOME/RetroPie/roms/ports/Chocolate D00M (Plus).sh" /dev/shm/CDPlus.sh
+			echo $"chocDOOMsh" > /dev/shm/CDPlus.sh
 			sed -i "s+doom1.wad+freedoom1.wad+g" /dev/shm/CDPlus.sh
 			mv /dev/shm/CDPlus.sh "$HOME/RetroPie/roms/ports/Chocolate Freedoom1 (Plus).sh"
 			
-			cp "$HOME/RetroPie/roms/ports/Chocolate D00M (Plus).sh" /dev/shm/CDPlus.sh
+			echo $"chocDOOMsh" > /dev/shm/CDPlus.sh
 			sed -i "s+doom1.wad+freedoom2.wad+g" /dev/shm/CDPlus.sh
 			mv /dev/shm/CDPlus.sh "$HOME/RetroPie/roms/ports/Chocolate Freedoom2 (Plus).sh"
 		fi
