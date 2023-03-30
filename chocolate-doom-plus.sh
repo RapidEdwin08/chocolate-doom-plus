@@ -52,9 +52,9 @@ if [[ "$1" == *"tnt.wad" ]] || [[ "$1" == *"plutonia.wad" ]] || [[ "$1" == *"TNT
 fi
 
 # FREEDOOM WADs - chocolate-doom
-if [[ "$1" == *"freedoom1.wad" ]] || [[ "$1" == *"freedoom2.wad" ]] || [[ "$1" == *"FREEDOOM1.WAD" ]] || [[ "$1" == *"FREEDOOM2.WAD" ]]; then
-	/opt/retropie/ports/chocolate-doom/chocolate-doom -iwad "$1"
-fi
+#if [[ "$1" == *"freedoom1.wad" ]] || [[ "$1" == *"freedoom2.wad" ]] || [[ "$1" == *"FREEDOOM1.WAD" ]] || [[ "$1" == *"FREEDOOM2.WAD" ]]; then
+#	/opt/retropie/ports/chocolate-doom/chocolate-doom -iwad "$1"
+#fi
 
 # HERETIC WADs - chocolate-heretic
 if [[ "$1" == *"heretic.wad" ]] || [[ "$1" == *"heretic1.wad" ]] || [[ "$1" == *"heretic12.wad" ]] || [[ "$1" == *"HERETIC.WAD" ]] || [[ "$1" == *"HERETIC1.WAD" ]] || [[ "$1" == *"HERETIC12.WAD" ]]; then
