@@ -102,17 +102,17 @@ if [ "$confCHOCdoomplus" == '1' ]; then
 			sudo chmod 755 /opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh 2>/dev/null
 			
 			# Add chocolate-doom+ Scripts to ..roms/ports
-			wget https://raw.githubusercontent.com/RapidEdwin08/chocolate-doom-plus/main/'Chocolate Doom Server.sh' -P /dev/shm
+			wget https://raw.githubusercontent.com/RapidEdwin08/chocolate-doom-plus/main/'Chocolate D00M (Plus).sh' -P /dev/shm
 			wget https://raw.githubusercontent.com/RapidEdwin08/chocolate-doom-plus/main/'Chocolate Doom Setup.sh' -P /dev/shm
-			mv "/dev/shm/Chocolate Doom Server.sh" "$HOME/RetroPie/roms/ports/+Chocolate Doom Server.sh" > /dev/null 2>&1
+			mv "/dev/shm/Chocolate D00M (Plus).sh" "$HOME/RetroPie/roms/ports/Chocolate D00M (Plus).sh" > /dev/null 2>&1
 			mv "/dev/shm/Chocolate Doom Setup.sh" "$HOME/RetroPie/roms/ports/+Chocolate Doom Setup.sh" > /dev/null 2>&1
 			
-			cp "$HOME/RetroPie/roms/ports/+Chocolate Doom Server.sh" /dev/shm/CDPlus.sh
-			sed -i "s+server+$HOME/RetroPie/roms/ports/doom/freedoom1.wad+g" /dev/shm/CDPlus.sh
+			cp "$HOME/RetroPie/roms/ports/Chocolate D00M (Plus).sh" /dev/shm/CDPlus.sh
+			sed -i "s+doom1.wad+freedoom1.wad+g" /dev/shm/CDPlus.sh
 			mv /dev/shm/CDPlus.sh "$HOME/RetroPie/roms/ports/Chocolate Freedoom1 (Plus).sh"
 			
-			cp "$HOME/RetroPie/roms/ports/+Chocolate Doom Server.sh" /dev/shm/CDPlus.sh
-			sed -i "s+server+$HOME/RetroPie/roms/ports/doom/freedoom2.wad+g" /dev/shm/CDPlus.sh
+			cp "$HOME/RetroPie/roms/ports/Chocolate D00M (Plus).sh" /dev/shm/CDPlus.sh
+			sed -i "s+doom1.wad+freedoom2.wad+g" /dev/shm/CDPlus.sh
 			mv /dev/shm/CDPlus.sh "$HOME/RetroPie/roms/ports/Chocolate Freedoom2 (Plus).sh"
 		fi
 		
