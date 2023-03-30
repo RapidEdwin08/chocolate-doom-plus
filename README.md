@@ -8,6 +8,14 @@ When Installed you can specify the Full Path to the doom.wad %ROM%
 You can also include additional -file and -deh in your R0M-Scripts.sh  
 Also includes R0M-Script for Chocolate D00M Setup Selection + Server  
 
+***Chocolate-D00M-Plus R0M-Scripts.sh:***  
+[Chocolate Doom (Plus).sh]: Can be placed in ..roms/ports/*  
+A Template Script for use with chocolate-doom-plus  
+
+[+Chocolate Doom Setup.sh]: Can be placed in ..roms/ports/*  
+Single Script to Select chocolate-setup for doom, heretic, hexen, strife  
+Also includes Dedicated Server Mode  
+
 ## INSTALLATION  
 ***You MUST INSTALL Chocolate Doom from RetroPie Setup 1st! [chocolate-doom]***  
 *eg. from [Exarkuniv/RetroPie-Extra/ports/chocolate-doom](https://github.com/Exarkuniv/RetroPie-Extra/blob/master/scriptmodules/ports/chocolate-doom.sh)  
@@ -47,11 +55,6 @@ wget https://raw.githubusercontent.com/RapidEdwin08/chocolate-doom-plus/main/Cho
 ## REFERENCES   
 ***Where to get Chocolate D00M P0RT:***  
 [Exarkuniv/RetroPie-Extra/ports/chocolate-doom](https://github.com/Exarkuniv/RetroPie-Extra/blob/master/scriptmodules/ports/chocolate-doom.sh)  
-
-***Chocolate-D00M-Plus R0M-Scripts.sh:***  
-[+Chocolate Doom Setup+.sh]: Can be placed in ..roms/ports/*  
-Script to Select chocolate-setup for doom, heretic, hexen, strife  
-Also includes Dedicated Server Mode  
 
 ***SOURCES:***  
 [Exarkuniv/RetroPie-Extra](https://github.com/Exarkuniv/RetroPie-Extra)  
