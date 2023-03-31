@@ -1,43 +1,31 @@
 # chocolate-doom-plus (chocolate-doom+)  
 ![chocolate-doom_plus.png](https://raw.githubusercontent.com/RapidEdwin08/chocolate-doom-plus/main/chocolate-doom_plus.png)  
-[chocolate-doom+] Emulator Entry allows you to easily load multiple D00M WADs with Chocolate D00M in RetroPie.  
+[chocolate-doom+] Easily add Load IWADs, M0Ds, -file, and -deh for Chocolate D00M R0Ms in RetroPie.  
 
-**HOW DOES IT WORK?**  
-[chocolate-doom-plus] Simplifies Chocolate D00M with additional Emulator Entries and R0M-Scripts.sh  
-When Installed you can specify the Full Path to the doom.wad %ROM%  
-You can also include additional -file and -deh in your R0M-Scripts.sh  
-Also adds -savedir [~RetroPie/roms/ports/doom/chocolate-doom-saves]  
-Also includes R0M-Script for Chocolate D00M Setup Selection + Server  
+## What is Chocolate D00M?  
+Chocolate Doom is a Doom source port that accurately reproduces the experience of Doom as it was played in the 1990s.  
+Requires a *KEYBOARD* but Use of a JoyPad is Supported  
 
-***Chocolate-D00M-Plus R0M-Scripts.sh:***  
-[Chocolate Doom (Plus).sh]: Can be placed in ..roms/ports/*  
-A Template Script for use with chocolate-doom-plus  
-
-[+Chocolate Doom Setup.sh]: Can be placed in ..roms/ports/*  
-Single Script to Select chocolate-setup for doom, heretic, hexen, strife  
-Also includes Dedicated Server Mode  
+## Why use Chocolate D00M?  
+While Limited in terms of M0Ds, it is a Great Authentic D00M Experience  
+Chocolate Doom is also Great for Low-End Hardware such as rPi 1/0  
 
 ## INSTALLATION  
 ***You MUST INSTALL Chocolate Doom from RetroPie Setup 1st! [chocolate-doom]***  
 *eg. from [Exarkuniv/RetroPie-Extra/ports/chocolate-doom](https://github.com/Exarkuniv/RetroPie-Extra/blob/master/scriptmodules/ports/chocolate-doom.sh)  
 
-Can be ran from retropiemenu:  
+If you want to 1-Run-N-Done:
+```bash
+curl -sSL https://raw.githubusercontent.com/RapidEdwin08/chocolate-doom-plus/main/chocolate-doom_plus.sh  | bash
+```
 
+If you want to Put the Install Script in the retropiemenu [+Icon]:  
 ```bash
 wget https://raw.githubusercontent.com/RapidEdwin08/chocolate-doom-plus/main/chocolate-doom_plus.sh -P ~/RetroPie/retropiemenu
 wget https://raw.githubusercontent.com/RapidEdwin08/chocolate-doom-plus/main/chocolate-doom_plus.png -P ~/RetroPie/retropiemenu/icons
 ```
 
-0R Run Manually from any directory:  
-```bash
-cd ~
-git clone --depth 1 https://github.com/RapidEdwin08/chocolate-doom-plus.git
-sudo chmod 755 ~/chocolate-doom-plus/chocolate-doom_plus.sh
-cd ~/chocolate-doom-plus && ./chocolate-doom_plus.sh
-
-```
-
-0ptionally you can Add an Entry and Icon to your retropiemenu [gamelist.xml]:  
+0ptionally you can Add an Entry [+Icon] to your retropiemenu [gamelist.xml]:  
 *Example Entry:*  
 ```
 	<game>
@@ -48,10 +36,37 @@ cd ~/chocolate-doom-plus && ./chocolate-doom_plus.sh
 	</game>
 ```
 
-If you need the Chocolate-D00M-Plus-Template.sh: 
+If you want to GIT it All:  
+```bash
+cd ~
+git clone --depth 1 https://github.com/RapidEdwin08/chocolate-doom-plus.git
+sudo chmod 755 ~/chocolate-doom-plus/chocolate-doom_plus.sh
+cd ~/chocolate-doom-plus && ./chocolate-doom_plus.sh
+
+```
+
+If you want to GET 0nly the Chocolate-D00M-Plus-Template.sh: 
 ```bash
 wget https://raw.githubusercontent.com/RapidEdwin08/chocolate-doom-plus/main/Chocolate\ D00M\ \(Plus\).sh -P ~/RetroPie/roms/ports
 ```
+
+## How to use:
+INSTALL [chocolate-doom] from RetroPie SETUP 1st...  
+INSTALL [chocolate-doom-plus] additional Emulator Entries  
+If Needed ***SET SOUND SETTINGS*** to timidity [/etc/timidity/timidity.cfg]  
+
+**[chocolate-doom+] Features:**  
+Ability to include additional -file -merge -deh in your R0M-Scripts.sh  
+Auto adds -savedir [~RetroPie/roms/ports/doom/chocolate-doom-saves]  
+Also includes R0M-Script for Chocolate D00M Setup Selection + Server  
+
+**Chocolate-D00M-Plus R0M-Scripts.sh:**  
+*[Chocolate Doom (Plus).sh]:* Can be placed in ..roms/ports/  
+A Template Script for use with chocolate-doom-plus  
+
+*[+Chocolate Doom Setup.sh]:* Can be placed in ..roms/ports/  
+Single Script to Select chocolate-setup for doom, heretic, hexen, strife  
+Also includes Dedicated Server Mode  
 
 ## REFERENCES   
 ***Where to get Chocolate D00M P0RT:***  
