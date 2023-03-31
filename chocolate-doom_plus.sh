@@ -102,7 +102,7 @@ if [ "$confCHOCdoomplus" == '1' ]; then
 		tput reset
 		# WARN IF [/opt/retropie/ports/chocolate-doom/chocolate-doom] N0T Found
 		if [ ! -f /opt/retropie/ports/chocolate-doom/chocolate-doom ]; then
-			dialog --no-collapse --title "***N0TICE*** [/opt/retropie/ports/chocolate-doom] NOT FOUND!" --ok-label MENU --msgbox "You MUST INSTALL chocolate-doom from RetroPie Setup 1st! [rott-darkwar]"  25 75
+			dialog --no-collapse --title "***N0TICE*** [/opt/retropie/ports/chocolate-doom] NOT FOUND!" --ok-label MENU --msgbox "You MUST INSTALL chocolate-doom from RetroPie Setup 1st! [chocolate-doom]"  25 75
 			mainMENU
 		fi
 		
@@ -173,15 +173,15 @@ fi
 
 # GET [chocolate-doom] from GIT
 if [ "$confCHOCdoomplus" == '3' ]; then
-	gitROTTports=$(dialog --no-collapse --title "           GET [chocolate-doom] P0RT for RetroPie             " \
+	gitCHDOOMports=$(dialog --no-collapse --title "           GET [chocolate-doom] P0RT for RetroPie             " \
 		--ok-label OK --cancel-label BACK \
 		--menu "                          ? ARE YOU SURE ?             \n \n This will GIT/UPDATE/OVERWRITE [chocolate-doom] scriptmodules in RetroPie-Setup \n \n  /home/$USER/RetroPie-Setup/ext/RetroPie-Extra/scriptmodules/ports/* \n \n             https://github.com/Exarkuniv/RetroPie-Extra/          \n \n $(ls ~/RetroPie-Setup/ext/RetroPie-Extra/scriptmodules/ports/ | grep 'chocolate-doom' )" 25 75 20 \
 		1 "><  YES GET  [chocolate-doom] P0RT for RetroPie ><" \
 		2 "><  BACK  ><" 2>&1>/dev/tty)
 	# Install Confirmed - Otherwise Back to Main Menu
-	if [ "$gitROTTports" == '1' ]; then
+	if [ "$gitCHDOOMports" == '1' ]; then
 		tput reset
-		# GIT ROTT P0RTs - Check If Internet Connection Available
+		# GIT CHDOOM P0RTs - Check If Internet Connection Available
 		wget -q --spider http://google.com
 		if [ $? -eq 0 ]; then
 			mkdir ~/RetroPie-Setup/ext/RetroPie-Extra > /dev/null 2>&1
@@ -191,7 +191,7 @@ if [ "$confCHOCdoomplus" == '3' ]; then
 			#wget https://raw.githubusercontent.com/Exarkuniv/RetroPie-Extra/master/scriptmodules/ports/chocolate-doom-system.sh -P /dev/shm/; mv /dev/shm/chocolate-doom-system.sh ~/RetroPie-Setup/ext/RetroPie-Extra/scriptmodules/ports/
 		else
 			# No Internet - Back to Main Menu
-			dialog --no-collapse --title "               [ERROR]               " --msgbox "   *INTERNET CONNECTION REQUIRED* TO GIT ROTT P0RTs"  25 75
+			dialog --no-collapse --title "               [ERROR]               " --msgbox "   *INTERNET CONNECTION REQUIRED* TO GIT CHDOOM P0RTs"  25 75
 			mainMENU
 		fi
 		dialog --no-collapse --title " GET [chocolate-doom] P0RT for RetroPie FINISHED" --ok-label Back --msgbox "  RetroPie Setup -> Manage Packages -> Manage experimental packages"  25 75
