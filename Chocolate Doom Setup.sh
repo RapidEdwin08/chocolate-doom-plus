@@ -1,5 +1,6 @@
 #!/bin/bash
-# https://github.com/RapidEdwin08
+# https://github.com/RapidEdwin08/chocolate-doom-plus v2023.03
+# Can be placed in ..roms/ports/*
 
 joy2key=/opt/retropie/admin/joy2key/joy2key
 sudo $joy2key stop 2>/dev/null
