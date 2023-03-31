@@ -37,8 +37,7 @@ echo '#!/bin/bash
 )
 
 chocDOOMplusREFS=$(
-echo '
-# What is Chocolate D00M?
+echo '# What is Chocolate D00M?
 Chocolate Doom is a Doom source port that accurately reproduces the experience of Doom as it was played in the 1990s.
 Requires a *KEYBOARD* but Use of a JoyPad is Supported
 
