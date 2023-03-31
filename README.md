@@ -6,6 +6,7 @@
 [chocolate-doom-plus] Simplifies Chocolate D00M with additional Emulator Entries and R0M-Scripts.sh  
 When Installed you can specify the Full Path to the doom.wad %ROM%  
 You can also include additional -file and -deh in your R0M-Scripts.sh  
+Also adds -savedir [~RetroPie/roms/ports/doom/chocolate-doom-saves]  
 Also includes R0M-Script for Chocolate D00M Setup Selection + Server  
 
 ***Chocolate-D00M-Plus R0M-Scripts.sh:***  
