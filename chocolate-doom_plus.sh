@@ -38,6 +38,14 @@ echo '#!/bin/bash
 
 chocDOOMplusREFS=$(
 echo '
+# What is Chocolate D00M?
+Chocolate Doom is a Doom source port that accurately reproduces the experience of Doom as it was played in the 1990s.
+Requires a *KEYBOARD* but Use of a JoyPad is Supported
+
+# Why use Chocolate D00M
+While Limited in terms of M0Ds, it is a Great Authentic D00M Experience
+Chocolate Doom is also Great for Low-End Hardware such as rPi 1/0
+
 # Where to get Chocolate D00M P0RTs:
 https://github.com/Exarkuniv/RetroPie-Extra
     .../scriptmodules/ports/chocolate-doom.sh
@@ -45,15 +53,16 @@ https://github.com/Exarkuniv/RetroPie-Extra
 # How to use:
 INSTALL [chocolate-doom] from RetroPie SETUP 1st...
 INSTALL [chocolate-doom-plus] additional Emulator Entries
-When Installed you can specify the Full Path to the doom.wad %ROM%
-You can also include additional -file and -deh in your R0M-Scripts.sh
-Also adds -savedir [~RetroPie/roms/ports/doom/chocolate-doom-saves]
+If Needed *SET SOUND SETTINGS* to timidity [/etc/timidity/timidity.cfg]
+
+# [chocolate-doom+] Features:
+Ability to include additional -file -merge -deh in your R0M-Scripts.sh
+Auto adds -savedir [~RetroPie/roms/ports/doom/chocolate-doom-saves]
 Also includes R0M-Script for Chocolate D00M Setup Selection + Server
 
 # Chocolate-D00M-Plus R0M-Scripts.sh:
 [Chocolate Doom (Plus).sh]: Can be placed in ..roms/ports/*
 A Template Script for use with chocolate-doom-plus
-
 [+Chocolate Doom Setup.sh]: Can be placed in ..roms/ports/*
 Single Script to Select chocolate-setup for doom, heretic, hexen, strife
 Also includes Dedicated Server Mode
