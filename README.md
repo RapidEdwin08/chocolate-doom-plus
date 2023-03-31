@@ -1,6 +1,6 @@
 # chocolate-doom-plus (chocolate-doom+)  
 ![chocolate-doom_plus.png](https://raw.githubusercontent.com/RapidEdwin08/chocolate-doom-plus/main/chocolate-doom_plus.png)  
-[chocolate-doom+] Easily add Load IWADs, M0Ds, -file, and -deh for Chocolate D00M R0Ms in RetroPie.  
+[chocolate-doom+] Additional Emulator Entries to Easily Load IWADs, M0Ds, -file, and -deh for Chocolate D00M R0Ms in RetroPie.  
 
 ## What is Chocolate D00M?  
 Chocolate Doom is a Doom source port that accurately reproduces the experience of Doom as it was played in the 1990s.  
@@ -71,6 +71,8 @@ Also includes Dedicated Server Mode
 ## REFERENCES   
 ***Where to get Chocolate D00M P0RT:***  
 [Exarkuniv/RetroPie-Extra/ports/chocolate-doom](https://github.com/Exarkuniv/RetroPie-Extra/blob/master/scriptmodules/ports/chocolate-doom.sh)  
+[chocolate-doom.org/Downloads](https://www.chocolate-doom.org/wiki/index.php/Downloads)  
 
 ***SOURCES:***  
 [Exarkuniv/RetroPie-Extra](https://github.com/Exarkuniv/RetroPie-Extra)  
+[chocolate-doom.org](https://www.chocolate-doom.org)  
