@@ -14,7 +14,7 @@ Chocolate Doom is also Great for Low-End Hardware such as rPi 1/0
 ***You MUST INSTALL Chocolate Doom from RetroPie Setup 1st! [chocolate-doom]***  
 *eg. from [Exarkuniv/RetroPie-Extra/ports/chocolate-doom](https://github.com/Exarkuniv/RetroPie-Extra/blob/master/scriptmodules/ports/chocolate-doom.sh)  
 
-If you want to 1-Run-N-Done:
+If you want 1-Run-N-Done:
 ```bash
 curl -sSL https://raw.githubusercontent.com/RapidEdwin08/chocolate-doom-plus/main/chocolate-doom_plus.sh  | bash
 ```
