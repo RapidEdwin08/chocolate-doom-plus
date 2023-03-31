@@ -89,6 +89,6 @@ fi
 
 # Run P0RT
 if [[ ! "$1" == "server" ]]; then
-	echo "$chocdoomSTRING" >> /dev/shm/runcommand.log
+	echo "$chocdoomSTRING -savedir $HOME/RetroPie/roms/ports/doom/chocolate-doom-saves" >> /dev/shm/runcommand.log
 	$chocdoomSTRING -savedir $HOME/RetroPie/roms/ports/doom/chocolate-doom-saves
 fi
