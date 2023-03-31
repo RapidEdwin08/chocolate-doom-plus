@@ -65,7 +65,7 @@ Also includes R0M-Script for Chocolate D00M Setup Selection + Server
 A Template Script for use with chocolate-doom-plus
 
 [+Chocolate Doom Setup.sh]: Can be placed in ..roms/ports/*
-Single Script to Select chocolate-setup for doom, heretic, hexen, strife
+Single Script to Select chocolate-setup for doom heretic hexen strife
 Also includes Dedicated Server Mode
 
 ======================================================================
