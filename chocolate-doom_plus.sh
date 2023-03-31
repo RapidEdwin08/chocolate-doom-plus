@@ -16,11 +16,11 @@ echo "            .-::::-.
 )
 
 chocDOOMcfg=$(
-echo 'chocolate-setup = "/opt/retropie/ports/chocolate-doom/chocolate-setup -iwad %ROM%"
-chocolate-doom-setup = "/opt/retropie/ports/chocolate-doom/chocolate-doom-setup -iwad %ROM%"
-chocolate-heretic-setup = "/opt/retropie/ports/chocolate-doom/chocolate-heretic-setup -iwad %ROM%"
-chocolate-hexen-setup = "/opt/retropie/ports/chocolate-doom/chocolate-hexen-setup -iwad %ROM%"
-chocolate-strife-setup = "/opt/retropie/ports/chocolate-doom/chocolate-strife-setup -iwad %ROM%"
+echo 'chocolate-setup = "/opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh %ROM% chocolate-setup"
+chocolate-doom-setup = "/opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh %ROM% chocolate-doom-setup"
+chocolate-heretic-setup = "/opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh %ROM% chocolate-heretic-setup"
+chocolate-hexen-setup = "/opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh %ROM% chocolate-hexen-setup"
+chocolate-strife-setup = "/opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh %ROM% chocolate-strife-setup"
 chocolate-server+ = "/opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh server"
 chocolate-doom+ = "/opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh %ROM%"
 default = "chocolate-doom+"
@@ -45,13 +45,18 @@ https://github.com/Exarkuniv/RetroPie-Extra
 # How to use:
 INSTALL [chocolate-doom] from RetroPie SETUP 1st...
 INSTALL [chocolate-doom-plus] additional Emulator Entries
-When Installed you can specify the Full Path to the doom.wad %ROM%  
-You can also include additional -file and -deh in your R0M-Scripts.sh  
-Also includes R0M-Script for Chocolate D00M Setup Selection + Server  
+When Installed you can specify the Full Path to the doom.wad %ROM%
+You can also include additional -file and -deh in your R0M-Scripts.sh
+Also adds -savedir [~RetroPie/roms/ports/doom/chocolate-doom-saves]
+Also includes R0M-Script for Chocolate D00M Setup Selection + Server
 
 # Chocolate-D00M-Plus R0M-Scripts.sh:
-[+Chocolate Doom Setup+.sh]: Can be placed in ..roms/ports/*
-Script to Select chocolate-setup for doom, heretic, hexen, strife
+[Chocolate Doom (Plus).sh]: Can be placed in ..roms/ports/*
+A Template Script for use with chocolate-doom-plus
+
+[+Chocolate Doom Setup.sh]: Can be placed in ..roms/ports/*
+Single Script to Select chocolate-setup for doom, heretic, hexen, strife
+Also includes Dedicated Server Mode
 
 ======================================================================
 CURRENT CONTENT [/opt/retropie/configs/ports/chocolate-doom-plus/emulators.cfg]:                   
