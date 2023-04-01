@@ -15,5 +15,5 @@
 ## _PORT_ "chocolate-doom-plus" "$HOME/RetroPie/roms/ports/doom/strife1.wad -file $HOME/RetroPie/roms/ports/doom/voices.wad"
 ## _PORT_ "chocolate-doom-plus" "$HOME/RetroPie/roms/ports/doom/doom2.wad -file $HOME/RetroPie/roms/ports/doom/french.wad -deh $HOME/RetroPie/roms/ports/doom/french.deh"
 ## _PORT_ "chocolate-doom-plus" "$HOME/RetroPie/roms/ports/doom/doom2.wad -merge $HOME/RetroPie/roms/ports/doom/mods/Hell2Pay/HTP-LTD.WAD $HOME/RetroPie/roms/ports/doom/mods/Hell2Pay/HTPDMO19.WAD"
-## _PORT_ "chocolate-doom-plus" "$HOME/RetroPie/roms/ports/doom/doom2.wad -file $HOME/RetroPie/roms/ports/doom/mods/PerditionsGate/PG-LTD.WAD $HOME/RetroPie/roms/ports/doom/mods/PerditionsGate/PGDEMO19.WAD"
+## _PORT_ "chocolate-doom-plus" "$HOME/RetroPie/roms/ports/doom/doom2.wad -file $HOME/RetroPie/roms/ports/doom/mods/PerditionsGate/PG-LTD-X.WAD $HOME/RetroPie/roms/ports/doom/mods/PerditionsGate/PGDEMO19.WAD"
 ## _PORT_ "chocolate-doom-plus" "$HOME/RetroPie/roms/ports/doom/doom2.wad -file $HOME/RetroPie/roms/ports/doom/mods/KDIKDIZD/KDiKDi_A.wad $HOME/RetroPie/roms/ports/doom/mods/KDIKDIZD/KDiKDi_B.wad -deh $HOME/RetroPie/roms/ports/doom/mods/KDIKDIZD/kdikdizd.deh"
