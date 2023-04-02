@@ -3,10 +3,6 @@
 # Can be placed in ..roms/ports/* or ..roms/doom/*
 # [chocolate-doom-plus] Recommended but Not Required
 
-joy2key=/opt/retropie/admin/joy2key/joy2key
-sudo $joy2key stop 2>/dev/null
-$joy2key start
-
 chocdoomLOGO=$(
 echo "            .-::::-.
            /        \\
@@ -41,6 +37,11 @@ echo "           chocolate-doom is Running as a Dedicated Server:
 chocdoomplusFLAG=0
 if [[ -f /opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh ]]; then chocdoomplusFLAG=1; fi
 
+joy2key=/opt/retropie/admin/joy2key/joy2key
+joy2keyFLAG=0
+if [[ "$0" == *"/roms/"* ]]; then joy2keyFLAG=1; fi
+if [[ "$joy2keyFLAG" == "1" ]]; then sudo $joy2key stop 2>/dev/null; $joy2key start; fi
+
 mainMENU()
 {
 # Confirm Utility
@@ -58,7 +59,7 @@ pickUTIL=$(dialog --no-collapse --title "  [Chocolate D00M SETUP]" \
 # Utilities
 if [ ! "$pickUTIL" == '' ]; then
 	if [ "$pickUTIL" == '0' ]; then
-		sudo $joy2key stop 2>/dev/null
+		if [[ "$joy2keyFLAG" == "1" ]]; then sudo $joy2key stop 2>/dev/null; fi
 		tput reset
 		if [[ "$chocdoomplusFLAG" == "1" ]]; then
 			"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "chocolate-setup"
@@ -69,7 +70,7 @@ if [ ! "$pickUTIL" == '' ]; then
 	fi
 	
 	if [ "$pickUTIL" == '1' ]; then
-		sudo $joy2key stop 2>/dev/null
+		if [[ "$joy2keyFLAG" == "1" ]]; then sudo $joy2key stop 2>/dev/null; fi
 		tput reset
 		if [[ "$chocdoomplusFLAG" == "1" ]]; then
 			"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "chocolate-doom-setup"
@@ -80,7 +81,7 @@ if [ ! "$pickUTIL" == '' ]; then
 	fi
 	
 	if [ "$pickUTIL" == '2' ]; then
-		sudo $joy2key stop 2>/dev/null
+		if [[ "$joy2keyFLAG" == "1" ]]; then sudo $joy2key stop 2>/dev/null; fi
 		tput reset
 		if [[ "$chocdoomplusFLAG" == "1" ]]; then
 			"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "chocolate-heretic-setup"
@@ -91,7 +92,7 @@ if [ ! "$pickUTIL" == '' ]; then
 	fi
 	
 	if [ "$pickUTIL" == '3' ]; then
-		sudo $joy2key stop 2>/dev/null
+		if [[ "$joy2keyFLAG" == "1" ]]; then sudo $joy2key stop 2>/dev/null; fi
 		tput reset
 		if [[ "$chocdoomplusFLAG" == "1" ]]; then
 			"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "chocolate-hexen-setup"
@@ -102,7 +103,7 @@ if [ ! "$pickUTIL" == '' ]; then
 	fi
 	
 	if [ "$pickUTIL" == '4' ]; then
-		sudo $joy2key stop 2>/dev/null
+		if [[ "$joy2keyFLAG" == "1" ]]; then sudo $joy2key stop 2>/dev/null; fi
 		tput reset
 		if [[ "$chocdoomplusFLAG" == "1" ]]; then
 			"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "chocolate-strife-setup"
@@ -113,7 +114,7 @@ if [ ! "$pickUTIL" == '' ]; then
 	fi
 	
 	if [ "$pickUTIL" == 'S' ]; then
-		sudo $joy2key stop 2>/dev/null
+		if [[ "$joy2keyFLAG" == "1" ]]; then sudo $joy2key stop 2>/dev/null; fi
 		tput reset
 		if [[ "$chocdoomplusFLAG" == "1" ]]; then
 			"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "server"
@@ -130,7 +131,7 @@ if [ ! "$pickUTIL" == '' ]; then
 	fi
 	
 	if [ "$pickUTIL" == 'X' ]; then
-		sudo $joy2key stop 2>/dev/null
+		if [[ "$joy2keyFLAG" == "1" ]]; then sudo $joy2key stop 2>/dev/null; fi
 		tput reset
 		exit 0
 	fi
@@ -138,13 +139,17 @@ if [ ! "$pickUTIL" == '' ]; then
 	mainMENU
 fi
 
-if [ "$pickUTIL" == '' ]; then sudo $joy2key stop 2>/dev/null; tput reset; exit 0; fi
+if [ "$pickUTIL" == '' ]; then
+	if [[ "$joy2keyFLAG" == "1" ]]; then sudo $joy2key stop 2>/dev/null; fi
+	tput reset
+	exit 0
+fi
 
 mainMENU
 }
 
 
 mainMENU
-sudo $joy2key stop 2>/dev/null
+if [[ "$joy2keyFLAG" == "1" ]]; then sudo $joy2key stop 2>/dev/null; fi
 tput reset
 exit 0
