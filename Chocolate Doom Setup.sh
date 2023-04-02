@@ -36,6 +36,7 @@ echo "           chocolate-doom is Running as a Dedicated Server:
 
 chocdoomplusFLAG=0
 if [[ -f /opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh ]]; then chocdoomplusFLAG=1; fi
+if [[ "$0" == *"/retropiemenu/"* ]]; then chocdoomplusFLAG=0; fi
 
 joy2key=/opt/retropie/admin/joy2key/joy2key
 joy2keyFLAG=0
