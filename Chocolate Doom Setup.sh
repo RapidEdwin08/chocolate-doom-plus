@@ -1,6 +1,7 @@
 #!/bin/bash
 # https://github.com/RapidEdwin08/chocolate-doom-plus v2023.03
-# Can be placed in ..roms/ports/*
+# Can be placed in ..roms/ports/* or ..roms/doom/*
+# [chocolate-doom-plus] Recommended but Not Required
 
 joy2key=/opt/retropie/admin/joy2key/joy2key
 sudo $joy2key stop 2>/dev/null
@@ -18,7 +19,27 @@ echo "            .-::::-.
              \\=-=-/
               \\=-/"
 )
-#       \\/
+
+SRVchocdoomLOGO=$(
+echo "           chocolate-doom is Running as a Dedicated Server:
+            .-::::-.
+           /        \\        $(hostname -I | tr -d ' ') / `curl -4 icanhazip.com 2>/dev/null | awk '{print $NF; exit}'`
+           :        :         ______  _____  _____ ___  ___
+           /:---:--:\\         |  _  \|  _  ||  _  ||  \/  |
+          :          :        | | | || |/' || |/' || .  . |
+          \\.--.---.-./        | | | ||  /| ||  /| || |\/| |
+          (_.--._.-._)        | |/ / \ |_/ /\ |_/ /| |  | |
+            \\=-=-=-/          |___/   \___/  \___/ \_|  |_/
+             \\=-=-/
+              \\=-/
+			  
+   Registered with master server at master.chocolate-doom.org:2342   
+		
+"
+)
+
+chocdoomplusFLAG=0
+if [[ -f /opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh ]]; then chocdoomplusFLAG=1; fi
 
 mainMENU()
 {
@@ -39,48 +60,72 @@ if [ ! "$pickUTIL" == '' ]; then
 	if [ "$pickUTIL" == '0' ]; then
 		sudo $joy2key stop 2>/dev/null
 		tput reset
-		#"/opt/retropie/ports/chocolate-doom/chocolate-setup" > /dev/null 2>&1
-		"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "chocolate-setup"
+		if [[ "$chocdoomplusFLAG" == "1" ]]; then
+			"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "chocolate-setup"
+		else
+			"/opt/retropie/ports/chocolate-doom/chocolate-setup" > /dev/null 2>&1
+		fi
 		exit 0
 	fi
 	
 	if [ "$pickUTIL" == '1' ]; then
 		sudo $joy2key stop 2>/dev/null
 		tput reset
-		#"/opt/retropie/ports/chocolate-doom/chocolate-doom-setup" > /dev/null 2>&1
-		"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "chocolate-doom-setup"
+		if [[ "$chocdoomplusFLAG" == "1" ]]; then
+			"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "chocolate-doom-setup"
+		else
+			"/opt/retropie/ports/chocolate-doom/chocolate-doom-setup" > /dev/null 2>&1
+		fi
 		exit 0
 	fi
 	
 	if [ "$pickUTIL" == '2' ]; then
 		sudo $joy2key stop 2>/dev/null
 		tput reset
-		#"/opt/retropie/ports/chocolate-doom/chocolate-heretic-setup" > /dev/null 2>&1
-		"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "chocolate-heretic-setup"
+		if [[ "$chocdoomplusFLAG" == "1" ]]; then
+			"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "chocolate-heretic-setup"
+		else
+			"/opt/retropie/ports/chocolate-doom/chocolate-heretic-setup" > /dev/null 2>&1
+		fi
 		exit 0
 	fi
 	
 	if [ "$pickUTIL" == '3' ]; then
 		sudo $joy2key stop 2>/dev/null
 		tput reset
-		#"/opt/retropie/ports/chocolate-doom/chocolate-hexen-setup" > /dev/null 2>&1
-		"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "chocolate-hexen-setup"
+		if [[ "$chocdoomplusFLAG" == "1" ]]; then
+			"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "chocolate-hexen-setup"
+		else
+			"/opt/retropie/ports/chocolate-doom/chocolate-hexen-setup" > /dev/null 2>&1
+		fi
 		exit 0
 	fi
 	
 	if [ "$pickUTIL" == '4' ]; then
 		sudo $joy2key stop 2>/dev/null
 		tput reset
-		#"/opt/retropie/ports/chocolate-doom/chocolate-strife-setup" > /dev/null 2>&1
-		"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "chocolate-strife-setup"
+		if [[ "$chocdoomplusFLAG" == "1" ]]; then
+			"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "chocolate-strife-setup"
+		else
+			"/opt/retropie/ports/chocolate-doom/chocolate-strife-setup" > /dev/null 2>&1
+		fi
 		exit 0
 	fi
 	
 	if [ "$pickUTIL" == 'S' ]; then
 		sudo $joy2key stop 2>/dev/null
 		tput reset
-		#"/opt/retropie/ports/chocolate-doom/chocolate-setup" > /dev/null 2>&1
-		"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "server"
+		if [[ "$chocdoomplusFLAG" == "1" ]]; then
+			"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "server"
+		else
+			echo ""
+			echo "$SRVchocdoomLOGO Press [CTRL-C] to KILL SERVER and EXIT... "
+			"/opt/retropie/ports/chocolate-doom/chocolate-server" > /dev/null 2>&1
+			# kill instances of chocolate-server
+			PIDrunncommandSH=$(ps -eaf | grep "chocolate-server" | awk '{print $2}')
+			kill $PIDrunncommandSH > /dev/null 2>&1
+			tput reset
+		fi
 		exit 0
 	fi
 	
