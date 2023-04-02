@@ -35,7 +35,7 @@ if [ "$1" == "" ] && [ "$0" == "/opt/retropie/configs/ports/chocolate-doom-plus/
 	dialog --no-collapse --ok-label QUIT --title "chocolate-doom is Running as a Dedicated Server:" --msgbox "$chocdoomLOGO Press [QUIT] to KILL SERVER and EXIT... "  25 75 </dev/tty > /dev/tty
 	# Run RetroPie [runcommand-onend.sh] after Quit
 	bash /opt/retropie/configs/all/runcommand-onend.sh > /dev/null 2>&1
-	# kill instances of runcommand scripts
+	# kill instances of chocolate-server
 	PIDrunncommandSH=$(ps -eaf | grep "chocolate-server" | awk '{print $2}')
 	kill $PIDrunncommandSH > /dev/null 2>&1
 	exit 0
