@@ -52,20 +52,24 @@ https://github.com/Exarkuniv/RetroPie-Extra
 # How to use:
 INSTALL [chocolate-doom] from RetroPie SETUP 1st...
 INSTALL [chocolate-doom-plus] additional Emulator Entries
-If Needed *SET SOUND SETTINGS* to timidity [/etc/timidity/timidity.cfg]
+If Needed SET SOUND SETTINGS: Native MIDI [/etc/timidity/timidity.cfg]
 
 # [chocolate-doom+] Features:
 Ability to include additional -file -merge -deh in your R0M-Scripts.sh
 Auto adds -savedir [~RetroPie/roms/ports/doom/chocolate-doom-saves]
 Also includes R0M-Script for Chocolate D00M Setup Selection + Server
 
+[+Chocolate Doom Setup.sh]: Can be placed in ..roms/ports/*
+Single Script to Select chocolate-setup for doom heretic hexen strife
+Also includes Dedicated Server Mode
+
 # Chocolate-D00M-Plus R0M-Scripts.sh:
 [Chocolate Doom (Plus).sh]: Can be placed in ..roms/ports/*
 A Template Script for use with chocolate-doom-plus
 
-[+Chocolate Doom Setup.sh]: Can be placed in ..roms/ports/*
-Single Script to Select chocolate-setup for doom heretic hexen strife
-Also includes Dedicated Server Mode
+# _P0RT_ Names for R0M-Scripts:
+ _PORT_ "chocolate-doom-plus" "%ROM% +Xtra Parameters"
+ _PORT_ "doom" "%ROM%" (+Xtra Parameters May not work with 0ther P0RTs)
 
 ======================================================================
 CURRENT CONTENT [/opt/retropie/configs/ports/chocolate-doom-plus/emulators.cfg]:                   
@@ -117,6 +121,15 @@ if [ "$confCHOCdoomplus" == '1' ]; then
 			mv /dev/shm/chocolate-doom-plus.sh /opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh 2>/dev/null
 			sudo chmod 755 /opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh 2>/dev/null
 			
+			# Backup emulators.cfg if not exist already
+			if [ ! -f /opt/retropie/configs/ports/doom/emulators.cfg.b4chd ]; then cp /opt/retropie/configs/ports/doom/emulators.cfg /opt/retropie/configs/ports/doom/emulators.cfg.b4chd 2>/dev/null; fi
+			
+			# Rebuild ..config/doom/emulators.cfg with chocolate-doom+
+			cat /opt/retropie/configs/ports/doom/emulators.cfg | grep -v 'chocolate-doom+' | grep -v 'chocolate-server+' > /dev/shm/emulators.cfg
+			#echo 'chocolate-server+ = "/opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh server"' >> /dev/shm/emulators.cfg
+			echo 'chocolate-doom+ = "/opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh %ROM%"' >> /dev/shm/emulators.cfg
+			mv /dev/shm/emulators.cfg /opt/retropie/configs/ports/doom/emulators.cfg 2>/dev/null
+			
 			# Add chocolate-doom+ Scripts to ..roms/ports
 			wget https://raw.githubusercontent.com/RapidEdwin08/chocolate-doom-plus/main/'Chocolate Doom Setup.sh' -P /dev/shm
 			mv "/dev/shm/Chocolate Doom Setup.sh" "$HOME/RetroPie/roms/ports/+Chocolate Doom Setup.sh" > /dev/null 2>&1
@@ -163,6 +176,13 @@ if [ "$confCHOCdoomplus" == '2' ]; then
 		rm "$HOME/RetroPie/roms/ports/Chocolate Freedoom1 (Plus).sh" > /dev/null 2>&1
 		rm "$HOME/RetroPie/roms/ports/Chocolate Freedoom2 (Plus).sh" > /dev/null 2>&1
 		rm "$HOME/RetroPie/roms/ports/+Chocolate Doom Setup.sh" > /dev/null 2>&1
+		
+		# Backup emulators.cfg if not exist already
+		if [ ! -f /opt/retropie/configs/ports/doom/emulators.cfg.b4chd ]; then cp /opt/retropie/configs/ports/doom/emulators.cfg /opt/retropie/configs/ports/doom/emulators.cfg.b4chd 2>/dev/null; fi
+		
+		# Rebuild ..config/doom/emulators.cfg with0UT chocolate-doom+
+		cat /opt/retropie/configs/ports/doom/emulators.cfg | grep -v 'chocolate-doom+' | grep -v 'chocolate-server+' > /dev/shm/emulators.cfg
+		mv /dev/shm/emulators.cfg /opt/retropie/configs/ports/doom/emulators.cfg 2>/dev/null
 		
 		dialog --no-collapse --title " REMOVE [chocolate-doom+] for RetroPie FINISHED" --ok-label Back --msgbox " chocolate-doom-plus REMOVED . . . "  25 75
 		mainMENU
