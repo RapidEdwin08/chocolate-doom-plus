@@ -117,7 +117,8 @@ if [ ! "$pickUTIL" == '' ]; then
 	if [ "$pickUTIL" == 'S' ]; then
 		if [[ "$joy2keyFLAG" == "1" ]]; then sudo $joy2key stop 2>/dev/null; fi
 		tput reset
-		if [[ "$chocdoomplusFLAG" == "1" ]]; then
+		if [[ "$chocdoomplusFLAG" == "1" ]]; then "/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "server"
+		elif [[ "$0" == *"/retropiemenu/"* ]] && [[ -f /opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh ]]; then
 			"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "server"
 		else
 			echo ""
