@@ -38,6 +38,7 @@ if [ "$1" == "" ] && [ "$0" == "/opt/retropie/configs/ports/chocolate-doom-plus/
 	# kill instances of chocolate-server
 	PIDrunncommandSH=$(ps -eaf | grep "chocolate-server" | awk '{print $2}')
 	kill $PIDrunncommandSH > /dev/null 2>&1
+	tput reset
 	exit 0
 fi
 
@@ -108,6 +109,7 @@ if [[ "$1" == "chocolate-strife-setup" ]] || [[ "$2" == "chocolate-strife-setup"
 	if [[ "$1" == "chocolate-strife-setup" ]]; then # Specify a doomWAD when Called from [+Chocolate Doom Setup.sh] Script
 		doomWAD="$HOME/RetroPie/roms/ports/doom/strife0.wad"
 		if [[ -f "$HOME/RetroPie/roms/ports/doom/strife1.wad" ]]; then doomWAD="$HOME/RetroPie/roms/ports/doom/strife1.wad"; fi
+		if [[ -f "$HOME/RetroPie/roms/ports/doom/voices.wad" ]]; then doomWAD="$HOME/RetroPie/roms/ports/doom/strife1.wad -merge $HOME/RetroPie/roms/ports/doom/voices.wad"; fi
 	fi
 	chdoomPORTstring="/opt/retropie/ports/chocolate-doom/chocolate-strife-setup -iwad $doomWAD"
 fi
