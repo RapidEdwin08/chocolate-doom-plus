@@ -34,14 +34,14 @@ echo "           chocolate-doom is Running as a Dedicated Server:
 "
 )
 
-chocdoomplusFLAG=0
-if [[ -f /opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh ]]; then chocdoomplusFLAG=1; fi
-if [[ "$0" == *"/retropiemenu/"* ]]; then chocdoomplusFLAG=0; fi
-
 joy2key=/opt/retropie/admin/joy2key/joy2key
 joy2keyFLAG=0
 if [[ "$0" == *"/roms/"* ]]; then joy2keyFLAG=1; fi
 if [[ "$joy2keyFLAG" == "1" ]]; then sudo $joy2key stop 2>/dev/null; $joy2key start; fi
+
+runcommandFLAG=1
+if [[ "$0" == *"/retropiemenu/"* ]] || [[ ! -f /opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh ]]; then runcommandFLAG=0; fi
+if [[ "$0" == "/usr/bin/"* ]] && [[ -f /opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh ]]; then runcommandFLAG=2; fi
 
 mainMENU()
 {
@@ -62,8 +62,10 @@ if [ ! "$pickUTIL" == '' ]; then
 	if [ "$pickUTIL" == '0' ]; then
 		if [[ "$joy2keyFLAG" == "1" ]]; then sudo $joy2key stop 2>/dev/null; fi
 		tput reset
-		if [[ "$chocdoomplusFLAG" == "1" ]]; then
+		if [[ "$runcommandFLAG" == "1" ]]; then
 			"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "chocolate-setup"
+		elif [[ "$runcommandFLAG" == "2" ]]; then
+			"/opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh" chocolate-doom-setup
 		else
 			"/opt/retropie/ports/chocolate-doom/chocolate-setup" > /dev/null 2>&1
 		fi
@@ -73,8 +75,10 @@ if [ ! "$pickUTIL" == '' ]; then
 	if [ "$pickUTIL" == '1' ]; then
 		if [[ "$joy2keyFLAG" == "1" ]]; then sudo $joy2key stop 2>/dev/null; fi
 		tput reset
-		if [[ "$chocdoomplusFLAG" == "1" ]]; then
+		if [[ "$runcommandFLAG" == "1" ]]; then
 			"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "chocolate-doom-setup"
+		elif [[ "$runcommandFLAG" == "2" ]]; then
+			"/opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh" chocolate-doom-setup
 		else
 			"/opt/retropie/ports/chocolate-doom/chocolate-doom-setup" > /dev/null 2>&1
 		fi
@@ -84,8 +88,10 @@ if [ ! "$pickUTIL" == '' ]; then
 	if [ "$pickUTIL" == '2' ]; then
 		if [[ "$joy2keyFLAG" == "1" ]]; then sudo $joy2key stop 2>/dev/null; fi
 		tput reset
-		if [[ "$chocdoomplusFLAG" == "1" ]]; then
+		if [[ "$runcommandFLAG" == "1" ]]; then
 			"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "chocolate-heretic-setup"
+		elif [[ "$runcommandFLAG" == "2" ]]; then
+			"/opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh" chocolate-heretic-setup
 		else
 			"/opt/retropie/ports/chocolate-doom/chocolate-heretic-setup" > /dev/null 2>&1
 		fi
@@ -95,8 +101,10 @@ if [ ! "$pickUTIL" == '' ]; then
 	if [ "$pickUTIL" == '3' ]; then
 		if [[ "$joy2keyFLAG" == "1" ]]; then sudo $joy2key stop 2>/dev/null; fi
 		tput reset
-		if [[ "$chocdoomplusFLAG" == "1" ]]; then
+		if [[ "$runcommandFLAG" == "1" ]]; then
 			"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "chocolate-hexen-setup"
+		elif [[ "$runcommandFLAG" == "2" ]]; then
+			"/opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh" chocolate-hexen-setup
 		else
 			"/opt/retropie/ports/chocolate-doom/chocolate-hexen-setup" > /dev/null 2>&1
 		fi
@@ -106,8 +114,10 @@ if [ ! "$pickUTIL" == '' ]; then
 	if [ "$pickUTIL" == '4' ]; then
 		if [[ "$joy2keyFLAG" == "1" ]]; then sudo $joy2key stop 2>/dev/null; fi
 		tput reset
-		if [[ "$chocdoomplusFLAG" == "1" ]]; then
+		if [[ "$runcommandFLAG" == "1" ]]; then
 			"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "chocolate-strife-setup"
+		elif [[ "$runcommandFLAG" == "2" ]]; then
+			"/opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh" chocolate-strife-setup
 		else
 			"/opt/retropie/ports/chocolate-doom/chocolate-strife-setup" > /dev/null 2>&1
 		fi
@@ -117,7 +127,9 @@ if [ ! "$pickUTIL" == '' ]; then
 	if [ "$pickUTIL" == 'S' ]; then
 		if [[ "$joy2keyFLAG" == "1" ]]; then sudo $joy2key stop 2>/dev/null; fi
 		tput reset
-		if [[ "$chocdoomplusFLAG" == "1" ]]; then "/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "server"
+		if [[ "$runcommandFLAG" == "1" ]]; then "/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "server"
+		elif [[ "$runcommandFLAG" == "2" ]]; then
+			"/opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh"
 		elif [[ "$0" == *"/retropiemenu/"* ]] && [[ -f /opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh ]]; then
 			"/opt/retropie/supplementary/runcommand/runcommand.sh" 0 _PORT_ "chocolate-doom-plus" "server"
 		else
