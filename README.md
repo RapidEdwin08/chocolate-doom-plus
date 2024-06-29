@@ -40,7 +40,7 @@ If you want to GIT it All:
 ```bash
 cd ~
 git clone --depth 1 https://github.com/RapidEdwin08/chocolate-doom-plus.git
-sudo chmod 755 ~/chocolate-doom-plus/chocolate-doom_plus.sh
+chmod 755 ~/chocolate-doom-plus/chocolate-doom_plus.sh
 cd ~/chocolate-doom-plus && ./chocolate-doom_plus.sh
 
 ```
