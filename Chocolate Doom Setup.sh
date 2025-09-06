@@ -1,7 +1,7 @@
 #!/bin/bash
 # https://github.com/RapidEdwin08/chocolate-doom-plus v2023.03
 # Can be placed in ..roms/ports/* or ..roms/doom/*
-# [chocolate-doom-plus] Recommended but Not Required
+# [chocolate-doom-plus] Recommended but NOT Required
 
 chocdoomLOGO=$(
 echo "            .-::::-.
@@ -40,6 +40,7 @@ if [[ "$0" == *"/roms/"* ]]; then joy2keyFLAG=1; fi
 if [[ "$joy2keyFLAG" == "1" ]]; then sudo $joy2key stop 2>/dev/null; $joy2key start; fi
 
 runcommandFLAG=1
+if [[ "$0" == *"/opt/retropie/ports/chocolate-doom/"* ]]; then runcommandFLAG=0; fi
 if [[ "$0" == *"/retropiemenu/"* ]] || [[ ! -f /opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh ]]; then runcommandFLAG=0; fi
 if [[ "$0" == "/usr/bin/"* ]] && [[ -f /opt/retropie/configs/ports/chocolate-doom-plus/chocolate-doom-plus.sh ]]; then runcommandFLAG=2; fi
 
