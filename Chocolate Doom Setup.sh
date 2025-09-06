@@ -47,7 +47,7 @@ if [[ "$0" == "/usr/bin/"* ]] && [[ -f /opt/retropie/configs/ports/chocolate-doo
 mainMENU()
 {
 # Confirm Utility
-pickUTIL=$(dialog --no-collapse --title "  [Chocolate D00M SETUP]" \
+pickUTIL=$(dialog --no-collapse --title "  [Chocolate D00M+ SETUP]" \
 	--ok-label OK --cancel-label EXIT \
 	--menu "$chocdoomLOGO" 25 75 20 \
 	0 " Chocolate-Setup [*] " \
